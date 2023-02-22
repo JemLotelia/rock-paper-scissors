@@ -83,7 +83,10 @@
             computerScore++
         }
         else if (playerChoice === computerChoice){
-            alert(`Computer chose ${computerChoice}! Its a tie`)
+            alert(`Computer chose ${computerChoice}! Its a tie`);
+            computerChoice = getComputerChoice();
+            playerChoice = getPlayerChoice();
+            playRound(playerChoice, computerChoice)
         }
         else {
             alert("You did not use a rock, a piece a paper or some handy scissors");
