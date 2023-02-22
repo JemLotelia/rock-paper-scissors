@@ -20,20 +20,21 @@
 
     function game(){
         for (let i = 0; i < 5; i++) {
-            if (playerScore < 3 || computerScore < 3){
                 computerChoice = getComputerChoice();
                 playerChoice = getPlayerChoice();
                 playRound(playerChoice, computerChoice)
             }
-            else if (playerScore === 3){
-                console.log = "You won the best of 5!"
-            }
-            else if (computerScore === 3){
-                console.log = "You lost this best of 5!"
-            }
-            else return
+        if (playerScore > computerScore){
+            alert("You win this best of 5!");
         }
-    }
+        else if (playerScore < computerScore){
+            alert("You lose this best of 5")
+        }
+        else if (playerScore === computerScore){
+            alert("Its a draw");}
+        else return 
+        }
+    
     game()
 
 
@@ -49,35 +50,33 @@
         return playerChoice
     }
 
-
-    console.log(playerChoice)
     function playRound(playerChoice, computerChoice ){
         if (playerChoice === "rock" && computerChoice === "scissors"){
-            console.log("You win this round")
+            alert(" Computer chose Scissors! You win this round")
             playerScore++
         }
         else if (playerChoice === "rock" && computerChoice ==="paper"){
-            console.log("You lose this round");
+            alert("Computer chose Paper! You lose this round");
             computerScore++
         }
         else if (playerChoice === "scissors" && computerChoice === "paper"){
-            console.log("You win this round")
+            alert("Computer chose Paper! You win this round")
             playerScore++
         }
         else if (playerChoice === "scissors" && computerChoice === "rock"){
-            console.log("You lose this round");
+            alert(" Computer chose Rock! You lose this round");
             computerScore++
         }
         else if (playerChoice === "paper" && computerChoice === "rock"){
-            console.log("You win this round")
+            alert("Computer chose Rock! You win this round")
             playerScore++
         }
         else if (playerChoice === "paper" && computerChoice === "scissors"){
-            console.log("You lose this round");
+            alert("Computer chose Scissors! You lose this round");
             computerScore++
         }
         else if (playerChoice === computerChoice){
-            console.log("Its a tie")
+            alert(`Computer chose ${computerChoice}! Its a tie`)
         }
         else {
             alert("You did not use a rock, a piece a paper or some handy scissors")
