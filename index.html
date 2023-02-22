@@ -12,16 +12,79 @@
 
 
 <script>
-    let choices = ["Rock", "Paper" , "Scissors"]
-    let computerChoice = choices[1];
-  
+    let choices = ["rock", "paper" , "scissors"]
+    let computerChoice;
+    let playerChoice;
+    let computerScore = 0;
+    let playerScore = 0; 
 
+    function game(){
+        for (let i = 0; i < 5; i++) {
+            if (playerScore < 3 || computerScore < 3){
+                computerChoice = getComputerChoice();
+                playerChoice = getPlayerChoice();
+                playRound(playerChoice, computerChoice)
+            }
+            else if (playerScore === 3){
+                console.log = "You won the best of 5!"
+            }
+            else if (computerScore === 3){
+                console.log = "You lost this best of 5!"
+            }
+            else return
+        }
+    }
+    game()
 
 
     function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 3);
-        let computerChoice = choices[randomNumber]
+        let computerChoice = choices[randomNumber];
+        return computerChoice
+        
     }
+
+    function getPlayerChoice() {
+        let playerChoice = prompt("Rock, Paper or Scissors? What will it be?").toLowerCase()
+        return playerChoice
+    }
+
+
+    console.log(playerChoice)
+    function playRound(playerChoice, computerChoice ){
+        if (playerChoice === "rock" && computerChoice === "scissors"){
+            console.log("You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "rock" && computerChoice ==="paper"){
+            console.log("You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === "scissors" && computerChoice === "paper"){
+            console.log("You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "scissors" && computerChoice === "rock"){
+            console.log("You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === "paper" && computerChoice === "rock"){
+            console.log("You win this round")
+            playerScore++
+        }
+        else if (playerChoice === "paper" && computerChoice === "scissors"){
+            console.log("You lose this round");
+            computerScore++
+        }
+        else if (playerChoice === computerChoice){
+            console.log("Its a tie")
+        }
+        else {
+            alert("You did not use a rock, a piece a paper or some handy scissors")
+        }
+}
+
+
 
 </script>
 
