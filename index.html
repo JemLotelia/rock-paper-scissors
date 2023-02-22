@@ -25,13 +25,20 @@
                 playRound(playerChoice, computerChoice)
             }
         if (playerScore > computerScore){
-            alert("You win this best of 5!");
+            alert(`You win this best of 5!
+            Computer Score: ${computerScore}
+            Player Score: ${playerScore}`);
         }
         else if (playerScore < computerScore){
-            alert("You lose this best of 5")
+            alert(`You lose this best of 5!
+            Computer Score: ${computerScore}
+            Player Score: ${playerScore}`);
         }
         else if (playerScore === computerScore){
-            alert("Its a draw");}
+            alert(`You Drew
+            Computer Score: ${computerScore}
+            Player Score: ${playerScore}`);
+        }
         else return 
         }
     
@@ -79,7 +86,7 @@
             alert(`Computer chose ${computerChoice}! Its a tie`)
         }
         else {
-            alert("You did not use a rock, a piece a paper or some handy scissors")
+            alert("You did not use a rock, a piece a paper or some handy scissors");
         }
 }
 
