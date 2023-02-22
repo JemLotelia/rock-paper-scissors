@@ -12,9 +12,16 @@
 
 
 <script>
+    let choices = ["Rock", "Paper" , "Scissors"]
+    let computerChoice = choices[1];
+  
 
-    
 
+
+    function getComputerChoice() {
+        let randomNumber = Math.floor(Math.random() * 3);
+        let computerChoice = choices[randomNumber]
+    }
 
 </script>
 
