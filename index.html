@@ -87,6 +87,9 @@
         }
         else {
             alert("You did not use a rock, a piece a paper or some handy scissors");
+            computerChoice = getComputerChoice();
+            playerChoice = getPlayerChoice();
+            playRound(playerChoice, computerChoice)
         }
 }
 
