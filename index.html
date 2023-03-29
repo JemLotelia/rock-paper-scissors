@@ -18,31 +18,38 @@
     let computerScore = 0;
     let playerScore = 0; 
 
-    function game(){
-        for (let i = 0; i < 5; i++) {
-                computerChoice = getComputerChoice();
-                playerChoice = getPlayerChoice();
-                playRound(playerChoice, computerChoice)
-            }
-        if (playerScore > computerScore){
-            alert(`You win this best of 5!
-            Computer Score: ${computerScore}
-            Player Score: ${playerScore}`);
-        }
-        else if (playerScore < computerScore){
-            alert(`You lose this best of 5!
-            Computer Score: ${computerScore}
-            Player Score: ${playerScore}`);
-        }
-        else if (playerScore === computerScore){
-            alert(`You Drew
-            Computer Score: ${computerScore}
-            Player Score: ${playerScore}`);
-        }
-        else return 
-        }
+    // function game(){
+    //     for (let i = 0; i < 5; i++) {
+    //             computerChoice = getComputerChoice();
+    //             playerChoice = getPlayerChoice();
+    //             playRound(playerChoice, computerChoice)
+    //         }
+    //     if (playerScore > computerScore){
+    //         alert(`You win this best of 5!
+    //         Computer Score: ${computerScore}
+    //         Player Score: ${playerScore}`);
+    //     }
+    //     else if (playerScore < computerScore){
+    //         alert(`You lose this best of 5!
+    //         Computer Score: ${computerScore}
+    //         Player Score: ${playerScore}`);
+    //     }
+    //     else if (playerScore === computerScore){
+    //         alert(`You Drew
+    //         Computer Score: ${computerScore}
+    //         Player Score: ${playerScore}`);
+    //     }
+    //     else return 
+    //     }
     
-    game()
+    // game()
+
+        function game(){
+        computerChoice = getComputerChoice();
+        playerChoice = getPlayerChoice();
+        playRound(playerChoice, computerChoice)
+        }
+
 
 
     function getComputerChoice() {
