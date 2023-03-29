@@ -16,6 +16,7 @@
             <p id="computerScore">Computer Score: 0</p>
         </div>
         <p id="winner"></p>
+        <p id="countdown"></p>
     </div>
 
     <div>
@@ -33,7 +34,8 @@
     let computerScore = 0;
     let playerScore = 0; 
 
-   
+    let countDown = document.querySelector('#countdown')
+    let winnerAnnouncement = document.querySelector('#winner')
     let computerScoreCount = document.querySelector('#computerScore')
     let playerScoreCount = document.querySelector('#playerScore')
     let roundResult = document.querySelector('#roundResult')
@@ -133,9 +135,24 @@
         else return}
 
         function updateScore () {
+        if (playerScore === 5){
+            playerScoreCount.textContent = `Player Score: ${playerScore}`
+            winnerAnnouncement.textContent = 'You are the winner!'
+            setInterval(resetScore(), 50000)
+        }
+        else if (computerScore === 5){
+            computerScoreCount.textContent = `Computer Score: ${computerScore}`
+            winnerAnnouncement.textContent = 'You lost!'
+            setInterval(resetScore(), 50000)
+        }
+
+        function resetScore(){
+            computerScore = 0;
+            playerScore = 0;
+
+        }
         playerScoreCount.textContent = `Player Score: ${playerScore}`
         computerScoreCount.textContent = `Computer Score: ${computerScore}`
-
     }
 </script>
 
