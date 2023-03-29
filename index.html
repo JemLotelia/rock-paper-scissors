@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     
@@ -20,9 +21,9 @@
     </div>
 
     <div>
-    <button id="rock">rock</button>
-    <button id="paper">paper</button>
-    <button id="scissors">scissors</button>
+    <button id="rock" class="button">rock</button>
+    <button id="paper" class="button">paper</button>
+    <button id="scissors" class="button">scissors</button>
     </div>
 </body>
 
@@ -138,22 +139,41 @@
         if (playerScore === 5){
             playerScoreCount.textContent = `Player Score: ${playerScore}`
             winnerAnnouncement.textContent = 'You are the winner!'
-            setInterval(resetScore(), 50000)
+            rockButton.disabled = true;
+            paperButton.disabled = true;
+            scissorsButton.disabled = true;
+            setTimeout(countdown, 1000);
+
         }
         else if (computerScore === 5){
             computerScoreCount.textContent = `Computer Score: ${computerScore}`
-            winnerAnnouncement.textContent = 'You lost!'
-            setInterval(resetScore(), 50000)
+            winnerAnnouncement.textContent = 'You lost!';
+            rockButton.disabled = true;
+            paperButton.disabled = true;
+            scissorsButton.disabled = true;
+            setTimeout(countdown, 1000);
         }
 
         function resetScore(){
             computerScore = 0;
             playerScore = 0;
-
         }
         playerScoreCount.textContent = `Player Score: ${playerScore}`
         computerScoreCount.textContent = `Computer Score: ${computerScore}`
-    }
+
+        timeLeft = 10
+
+        function countdown() {
+	    timeLeft--;
+	    countDown.textContent = String( timeLeft);
+	    if (timeLeft == 0){
+            location.reload();}
+        else if (timeLeft > 0) {
+		setTimeout(countdown, 1000);
+        };
+    }}
+
+
 </script>
 
 </html>
