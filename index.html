@@ -8,10 +8,21 @@
 </head>
 <body>
     
+    <div id="results">
+        <h1>Rock Paper Scissors!</h1>
+        <p id="roundResult">Chose your weapon to begin playing!</p>
+        <div>
+            <p id="playerScore">Player Score: 0</p>
+            <p id="computerScore">Computer Score: 0</p>
+        </div>
+        <p id="winner"></p>
+    </div>
+
+    <div>
     <button id="rock">rock</button>
     <button id="paper">paper</button>
     <button id="scissors">scissors</button>
-    
+    </div>
 </body>
 
 
@@ -22,9 +33,15 @@
     let computerScore = 0;
     let playerScore = 0; 
 
+   
+    let computerScoreCount = document.querySelector('#computerScore')
+    let playerScoreCount = document.querySelector('#playerScore')
+    let roundResult = document.querySelector('#roundResult')
     let rockButton = document.querySelector('#rock')
     let paperButton = document.querySelector('#paper')
     let scissorsButton = document.querySelector('#scissors')
+
+
 
     rockButton.addEventListener('click', () => {
         computerChoice = getComputerChoice()
@@ -67,8 +84,9 @@
     //     }
     //     else return 
     //     }
+
+
     
-    // game()
 
     function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 3);
@@ -77,39 +95,48 @@
         
     }
 
-
-
     function playRound(playerChoice, computerChoice ){
         if (playerChoice === "rock" && computerChoice === "scissors"){
-            console.log(" Computer chose Scissors! You win this round")
+            roundResult.textContent =" Computer chose Scissors! You win this round";
             playerScore++
+            updateScore()
         }
         else if (playerChoice === "rock" && computerChoice ==="paper"){
-            console.log("Computer chose Paper! You lose this round");
+            roundResult.textContent = "Computer chose Paper! You lose this round";
             computerScore++
+            updateScore()
         }
         else if (playerChoice === "scissors" && computerChoice === "paper"){
-            console.log("Computer chose Paper! You win this round")
+            roundResult.textContent = "Computer chose Paper! You win this round";
             playerScore++
+            updateScore()
         }
         else if (playerChoice === "scissors" && computerChoice === "rock"){
-            console.log(" Computer chose Rock! You lose this round");
+            roundResult.textContent = "Computer chose Rock! You lose this round";
             computerScore++
+            updateScore()
         }
         else if (playerChoice === "paper" && computerChoice === "rock"){
-            console.log("Computer chose Rock! You win this round")
+            roundResult.textContent ="Computer chose Rock! You win this round";
             playerScore++
+            updateScore()
         }
         else if (playerChoice === "paper" && computerChoice === "scissors"){
-            console.log("Computer chose Scissors! You lose this round");
+            roundResult.textContent = "Computer chose Scissors! You lose this round";
             computerScore++
+            updateScore()
         }
         else if(playerChoice === computerChoice){
-            console.log(`Computer chose ${computerChoice}! Its a tie`);
+            roundResult.textContent = `Computer chose ${computerChoice}! Its a tie`;
+            updateScore()
         }
         else return}
 
+        function updateScore () {
+        playerScoreCount.textContent = `Player Score: ${playerScore}`
+        computerScoreCount.textContent = `Computer Score: ${computerScore}`
 
+    }
 </script>
 
 </html>
