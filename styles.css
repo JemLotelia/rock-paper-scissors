@@ -6,7 +6,7 @@ body {
 
 .container {
     background-color: var(--lavendar);
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
     border-radius: 2rem;
 }
@@ -96,7 +96,7 @@ h1 {
 .score-container {
     background-color: var(--lavendar);
     text-align: center;
-    width: 50%
+    width: 50%width: 50%
 }
 
 .row {
