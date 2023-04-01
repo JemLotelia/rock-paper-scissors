@@ -22,7 +22,7 @@
             <h2>Player Score</h2>
             <p id="playerScore" class="score-count">0</p>
             </div>
-            <div class="score-container">
+            <div class="score-contsainer">
             <h2>Computer Score</h2>
             <p id="computerScore" class="score-count">0</p>
             </div>
@@ -48,11 +48,15 @@
 
 
 <script>
+
+// Global Variables
     let choices = ["rock", "paper" , "scissors"]
     let computerChoice;
     let playerChoice;
     let computerScore = 0;
     let playerScore = 0; 
+
+// Query Selectors
 
     let countDown = document.querySelector('#countdown')
     let winnerAnnouncement = document.querySelector('#winner')
@@ -64,7 +68,8 @@
     let scissorsButton = document.querySelector('#scissors')
 
 
-
+/* Event listeners that set player choice to corresponding buttons, 
+then calls playRound Function */
     rockButton.addEventListener('click', () => {
         computerChoice = getComputerChoice()
         playerChoice = 'rock'
@@ -83,6 +88,8 @@
         playRound(playerChoice, computerChoice)
     })
 
+
+    // Redundent code that was used before I had DOM manipulation in place
     // function game(){
     //     for (let i = 0; i < 5; i++) {
     //             computerChoice = getComputerChoice();
@@ -108,7 +115,7 @@
     //     }
 
 
-    
+    // Generates the computers choice from the choices array
 
     function getComputerChoice() {
         let randomNumber = Math.floor(Math.random() * 3);
@@ -117,6 +124,8 @@
         
     }
 
+    // Basic rock paper scissors logic that increases score depending on winner, then calls update score function
+    
     function playRound(playerChoice, computerChoice ){
         if (playerChoice === "rock" && computerChoice === "scissors"){
             roundResult.textContent =" Computer chose Scissors! You win this round";
@@ -154,6 +163,10 @@
         }
         else return}
 
+        // Acts as a update score as well as logic for first to five
+        // Disables buttons after winner then starts a timer ,
+        // 10 seconds timer using setTimeout
+
         function updateScore () {
         if (playerScore === 5){
             playerScoreCount.textContent = `${playerScore}`
@@ -173,15 +186,13 @@
             setTimeout(countdown, 1000);
         }
 
-        function resetScore(){
-            computerScore = 0;
-            playerScore = 0;
-        }
+        // Player and Computer Score DOM Manipulators
         playerScoreCount.textContent = `${playerScore}`
         computerScoreCount.textContent = `${computerScore}`
 
         timeLeft = 10
 
+        // Countdown logic 
         function countdown() {
 	    timeLeft--;
 	    countDown.textContent = String( timeLeft);
